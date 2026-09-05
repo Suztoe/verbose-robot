@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安全なSNS - SafeSNS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>SafeSNS</h1>
+      <p>プライバシー安全第一の小さなSNS</p>
+    </header>
+
+    <main>
+      <section id="auth-section">
+        <h2>はじめる</h2>
+        <p>匿名ハンドルネームを入力してください。パスワードは不要です。</p>
+        <form id="auth-form">
+          <input type="text" id="handle-input" placeholder="ハンドルネーム" maxlength="32" required>
+          <button type="submit">入室</button>
+        </form>
+      </section>
+
+      <section id="timeline-section" class="hidden">
+        <div id="user-bar">
+          <span id="current-handle"></span>
+          <button id="logout-btn" type="button">退出</button>
+        </div>
+
+        <section id="post-box">
+          <h2>投稿</h2>
+          <form id="post-form">
+            <textarea id="post-body" rows="3" maxlength="500" placeholder="今の気持ちを共有しましょう" required></textarea>
+            <div id="post-meta">
+              <span id="char-count">0 / 500</span>
+              <button type="submit">投稿</button>
+            </div>
+            <p id="post-warning" class="warning hidden"></p>
+          </form>
+        </section>
+
+        <section id="timeline">
+          <h2>タイムライン</h2>
+          <div id="posts"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <details>
+        <summary>安全機能について</summary>
+        <ul>
+          <li>すべてのデータはブラウザ内に保存され、サーバーに送信されません。</li>
+          <li>外部スクリプトやトラッキングは一切使用していません。</li>
+          <li>不適切な表現を含む投稿は自動的に警告されます。</li>
+          <li>他のユーザーをブロック・通報できます。</li>
+          <li>「データを消去」で端末内の情報を完全に削除できます。</li>
+        </ul>
+      </details>
+      <button id="wipe-data" type="button">データを消去</button>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
